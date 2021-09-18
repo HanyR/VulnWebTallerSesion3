@@ -1,0 +1,8 @@
+package pages;
+
+import control.Button;
+import org.openqa.selenium.By;
+
+public class PricingPage {
+    public Button btnFreeTrial = new Button(By.cssSelector("a[class='_2q_cf _2k-7Y _2Vql7 _132Op ga-try-for-free-button']"));
+}
