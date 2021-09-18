@@ -1,0 +1,14 @@
+package pages;
+
+import control.Button;
+import control.Textbox;
+import org.openqa.selenium.By;
+
+import javax.xml.soap.Text;
+
+public class FreeTrialPage {
+    public Textbox txtTeamName = new Textbox(By.id("team_name"));
+    public Button btnFreeTrial = new Button(By.id("submit_button"));
+    public Textbox txtModalMessage = new Textbox(By.cssSelector("div[class='text_holder']"));
+    public Button btnModalMessage = new Button(By.cssSelector("a[class='ist_button ist_button_red']"));
+}
