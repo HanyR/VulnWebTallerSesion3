@@ -1,0 +1,42 @@
+package TestCases;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import pages.FreeTrialPage;
+import pages.MainPage;
+import pages.PricingPage;
+import singletonSession.session;
+
+public class FreeTrialInvalid {
+    MainPage mainPage = new MainPage();
+    PricingPage pricingPage = new PricingPage();
+    FreeTrialPage freeTrialPage = new FreeTrialPage();
+
+    @BeforeEach
+    public void before() {
+        session.getSession().getDriver().get("https://todoist.com/");
+        session.getSession().maximizeDriver();
+
+
+    }
+
+    @AfterEach
+    public void after() {
+         session.getSession().closeSession();
+    }
+
+    @Test
+    public void verifyTheFreeTrial() throws InterruptedException {
+        mainPage.btnPricing.click();
+        pricingPage.btnFreeTrial.click();
+        freeTrialPage.txtTeamName.fillText("Testing Taller Final");
+        freeTrialPage.btnFreeTrial.click();
+        //verificación
+        Thread.sleep(1000);
+        Assertions.assertTrue(freeTrialPage.txtModalMessage.isControlDisplayed(), "ERROR SI tuvo acceso");
+
+        freeTrialPage.btnModalMessage.click();
+    }
+}
